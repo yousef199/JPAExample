@@ -12,7 +12,7 @@
         <property name="javax.persistence.jdbc.user" value = "sys as sysdba"/>
         <property name="javax.persistence.jdbc.password" value = "yousef"/>
         <property name="javax.persistence.jdbc.driver" value = "oracle.jdbc.driver.OracleDriver"/>
-        <!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> -->
+        <!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>   -->
         <property name="hibernate.show_sql" value="true"/>
         </properties>
         

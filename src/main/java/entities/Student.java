@@ -1,12 +1,16 @@
 package entities;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.stream.FileImageInputStream;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
@@ -17,11 +21,14 @@ public class Student {
 	private String studentID;
 	private String name;
 	private int age;
+	@Lob
+	private byte[] image;
 
 	@OneToOne
 	public Laptop laptop;
 
-	@ManyToOne
+	@ManyToOne 
+	@JoinColumn(name = "teacher_id")
 	private Teacher teacher;
 	
 	@ManyToMany
@@ -44,7 +51,6 @@ public class Student {
 	}
 
 	public Student(String studentID, String name, int age, Laptop laptop) {
-		super();
 		this.studentID = studentID;
 		this.name = name;
 		this.age = age;
@@ -97,4 +103,14 @@ public class Student {
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
+	
 }

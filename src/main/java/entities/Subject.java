@@ -9,7 +9,6 @@ import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Subject {
-
 	@Id
 	int id;
 	String name;
@@ -17,9 +16,9 @@ public class Subject {
 	List<Student> students = new ArrayList<>();
 
 	public Subject(int id, String name, List<Student> students) {
-		super();
 		this.id = id;
 		this.name = name;
+		if(!(students == null))
 		students.forEach(s -> this.students.add(s));
 	}
 

@@ -15,6 +15,9 @@ public class Laptop {
 		
 	}
 	
+	
+
+
 	public Laptop(String id, String name) {
 		this.id = id;
 		this.name = name;

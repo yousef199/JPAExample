@@ -25,10 +25,10 @@ public class LaptopManager {
 	 factory.close();
 	}
 	
-	public  void addLaptop(Laptop l) {
-		if (l == null)
+	public void addLaptop(Laptop l) {
+		 if (l == null)
 			throw new NullPointerException("laptop is null");
-		manager.persist(l);
+		 manager.persist(l);
 	}
 	
 	public  void updateLaptop(Laptop laptop) {

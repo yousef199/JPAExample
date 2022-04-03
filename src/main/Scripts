@@ -1,0 +1,9 @@
+Student s1 = new Student("1123" , "yousef" , 14);
+Student s2 = new Student("1124" , "omar" , 17);
+
+List<Student> studentsList = new ArrayList<>();
+studentsList.add(s1);
+studentsList.add(s2);
+
+
+Teacher t = new Teacher(1123 , "ahmed" , 20 , studentsList);

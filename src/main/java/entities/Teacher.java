@@ -17,12 +17,20 @@ public class Teacher {
 	@OneToMany(mappedBy = "teacher")
 	private List<Student> students = new ArrayList<Student>();
 	
-	Teacher(){
+	public Teacher(){
 		
 	}
 	
-	public Teacher(int id, String name, int age, List<Student> students) {
+	
+	public Teacher(int id, String name, int age) {
 		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+
+
+	public Teacher(int id, String name, int age, List<Student> students) {
 		this.id = id;
 		this.name = name;
 		this.age = age;

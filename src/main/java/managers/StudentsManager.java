@@ -24,8 +24,11 @@ public class StudentsManager {
 	 manager.getTransaction().begin();
 	}
 	
-	public void closeConnectionAndCommitTransaction() {
+	public void commitTransaction() {
 	 manager.getTransaction().commit();
+	}
+	
+	public void closeConnection() {
 	 manager.close();
 	 factory.close();
 	}
