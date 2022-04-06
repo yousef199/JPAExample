@@ -1,12 +1,11 @@
 package managers;
 
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import entities.Student;
 import entities.Teacher;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 public class TeacherManager {
 	private static EntityManager manager;
@@ -19,13 +18,15 @@ public class TeacherManager {
 	private static void connect() {
 	 factory = Persistence.createEntityManagerFactory("StudentUnit");
 	 manager = factory.createEntityManager();
-	 manager.getTransaction().begin();
 	}
 	
 	public void commitTransaction() {
-	 manager.getTransaction().commit();
+		manager.getTransaction().commit();
 	}
 	
+	public void beginTransaction() {
+		manager.getTransaction().begin();
+	}
 	public  void closeConnection() {
 	 manager.close();
 	 factory.close();
@@ -35,6 +36,9 @@ public class TeacherManager {
      	 manager.persist(teacher);
 	}
 	
+	public void addStudents(Student s) {
+		manager.persist(s);
+	}
 	
 	public  void updateTeacher(Teacher teacher) {
 	 manager.merge(teacher);

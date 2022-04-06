@@ -7,3 +7,11 @@ studentsList.add(s2);
 
 
 Teacher t = new Teacher(1123 , "ahmed" , 20 , studentsList);
+
+*******************************************************************************************************************
+
+		s1.setImage(pc.getImageBytes());
+		studentsManager.addStudent(s1);
+		studentsManager.commitTransaction();
+//		s1 = studentsManager.getStudent("1123");
+//		writeImageToNewFile(s1);

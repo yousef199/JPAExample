@@ -3,9 +3,10 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class Subject {
@@ -14,6 +15,11 @@ public class Subject {
 	String name;
 	@ManyToMany(mappedBy = "subjects")
 	List<Student> students = new ArrayList<>();
+	
+	
+
+	public Subject() {
+	}
 
 	public Subject(int id, String name, List<Student> students) {
 		this.id = id;

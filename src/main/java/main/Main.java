@@ -17,29 +17,35 @@ import managers.SubjectManager;
 import managers.TeacherManager;
 
 public class Main {
-	static LaptopManager laptopManager;
 	static StudentsManager studentsManager;
 	static TeacherManager teacherManager;
-	static SubjectManager subjectManager;
 
 	
 	public static void main(String[] args) throws Exception{
-		studentsManager = new StudentsManager();
 		teacherManager = new TeacherManager();
+		studentsManager = new StudentsManager();
 		String imagePath = "C:\\Users\\yqadous\\Pictures\\wallpaperflare.com_wallpaper (1).jpg";
 
-		PhotoChooser pc = new PhotoChooser(imagePath);
-		Laptop l = new Laptop("1" , "Dell");
-		Student s1 = new Student("1123" , "yousef" , 14);
-		Student s2 = new Student("1124" , "omar" , 17 , l);
-		Teacher t = new Teacher(1245 , "yousef" , 20 );
-		t.getStudents().add(s2);
-		
-		studentsManager.remove("1123");
-		teacherManager.commitTransaction();
+		Student s1 = new Student("11123" , "yousef" , 14);
+		Student s2 = new Student("11124" , "omar" , 17 );
+		Student s3 = new Student("11125" , "loai" , 17 );
+		Subject math = new Subject(1 , "Math" , null);
+		Subject history = new Subject(2 , "History" , null);
 
-		studentsManager.closeConnection();
+		s1.getSubjects().add(history);
+		s2.getSubjects().add(history);
+		s3.getSubjects().add(history);
+		s3.getSubjects().add(math);
+		s3.getSubjects().add(math);
+		
+		studentsManager.beginTransaction();
+		studentsManager.addStudent(s3);
+		studentsManager.addStudent(s2);
+		studentsManager.addStudent(s1);
+		studentsManager.commitTransaction();
+
 		teacherManager.closeConnection();
+		studentsManager.closeConnection();
 	}
 	
 	public static void writeImageToNewFile(Student s) throws IOException {
